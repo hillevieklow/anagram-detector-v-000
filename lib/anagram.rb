@@ -6,8 +6,14 @@ class Anagram
     @word = word
   end
 
-  def match(possible_anagrams)
-    possible_anagrams.select{|current_word| current_word.chars.sort.join == @words.chars.sort.join}
+  def match(words)
+    matched = []
+    words.each do |word|
+      if word.split("").sort == self.word.split("").sort
+        matched << word
+      end
+    end
+    matched
   end
 
 end
